@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Zayka Fast Food</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🍔 ZAYKA ADMIN</div>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul id="navLinks">
+      <li><a href="index.html">View Site</a></li>
+      <li><a href="#" onclick="logout();return false;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="page container">
+    <h2 class="section-title">Admin Dashboard</h2>
+
+    <div class="stats">
+      <div class="stat hero-stat"><div class="num" id="statEarnings">₹0</div><div class="lbl">💰 Total Earnings</div></div>
+      <div class="stat"><div class="num" id="statToday">₹0</div><div class="lbl">📅 Today's Earnings</div></div>
+      <div class="stat"><div class="num" id="statOrders">0</div><div class="lbl">📦 Total Orders</div></div>
+      <div class="stat"><div class="num" id="statPending">0</div><div class="lbl">⏳ Pending Orders</div></div>
+      <div class="stat"><div class="num" id="statDelivered">0</div><div class="lbl">✅ Delivered</div></div>
+      <div class="stat"><div class="num" id="statAvg">₹0</div><div class="lbl">🧾 Avg Order Value</div></div>
+      <div class="stat"><div class="num" id="statCustomers">0</div><div class="lbl">👥 Customers</div></div>
+      <div class="stat"><div class="num" id="statRestaurants">0</div><div class="lbl">🍽️ Restaurants</div></div>
+    </div>
+
+    <div class="best-seller" id="bestSeller"></div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('restaurants', this)">🍽️ Restaurants &amp; Menu</button>
+      <button class="tab-btn" onclick="showTab('orders', this)">📦 Orders</button>
+      <button class="tab-btn" onclick="showTab('customers', this)">👥 Customers</button>
+    </div>
+
+    <!-- Restaurants & Menu -->
+    <div class="panel active" id="panel-restaurants">
+      <div class="admin-restaurant">
+        <h3>➕ Add New Restaurant</h3>
+        <div class="row-inline">
+          <input type="text" id="newRestName" placeholder="Restaurant name (e.g. 🍜 Noodle Bar)">
+          <button class="btn-add" onclick="addRestaurant()">Add Restaurant</button>
+        </div>
+      </div>
+      <div id="restaurantList"></div>
+    </div>
+
+    <!-- Orders -->
+    <div class="panel" id="panel-orders">
+      <div class="row-inline" style="margin-bottom:12px;">
+        <button class="btn-danger btn-sm" onclick="adminClearOrders()">Clear All Orders</button>
+      </div>
+      <div id="ordersTable"></div>
+    </div>
+
+    <!-- Customers -->
+    <div class="panel" id="panel-customers">
+      <div id="customersTable"></div>
+    </div>
+  </div>
+
+  <div class="footer">Zayka Admin • data stored locally as JSON</div>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

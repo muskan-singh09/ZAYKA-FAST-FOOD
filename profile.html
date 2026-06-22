@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile — Zayka Fast Food</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🍔 ZAYKA FAST FOOD</div>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="orders.html">Order History</a></li>
+      <li><a href="profile.html" id="navProfile" class="active"><i class="fa-solid fa-user"></i> Profile</a></li>
+      <li><a href="login.html"><i class="fa-solid fa-lock"></i> Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="page container">
+
+    <!-- Logged-out: login / register -->
+    <div class="form-box fade-up" id="loginCard">
+      <h2 class="section-title" style="margin-top:0;">👤 My Profile</h2>
+      <p class="center" style="color:#777;margin-bottom:10px;">
+        Set up your profile to track your orders and live status.
+      </p>
+      <form id="profileForm">
+        <label>Name</label>
+        <input type="text" id="pName" placeholder="Your name" required>
+        <label>Phone</label>
+        <input type="tel" id="pPhone" placeholder="10-digit phone" pattern="[0-9]{10}" required>
+        <label>Delivery Address</label>
+        <textarea id="pAddress" placeholder="Where should we deliver?" required></textarea>
+        <br><br>
+        <button type="submit">Save Profile &amp; Continue</button>
+      </form>
+    </div>
+
+    <!-- Logged-in: profile + my orders -->
+    <div id="profileView" style="display:none;">
+      <div class="form-box fade-up" style="margin-bottom:24px;">
+        <div class="profile-head">
+          <div class="avatar" id="pAvatar">A</div>
+          <div>
+            <h2 id="pvName" style="margin:0;color:#e25822;"></h2>
+            <p class="meta" id="pvContact"></p>
+          </div>
+        </div>
+        <div class="row-inline" style="margin-top:16px;justify-content:center;">
+          <a href="menu.html" class="btn">Order Now</a>
+          <button class="btn-grey" onclick="logoutCustomer()">Log Out</button>
+        </div>
+      </div>
+
+      <h2 class="section-title">📦 Current Orders</h2>
+      <div id="activeOrders"></div>
+
+      <h2 class="section-title">🕘 Past Orders</h2>
+      <div id="pastOrders"></div>
+    </div>
+  </div>
+
+  <!-- Toast popup for live status updates -->
+  <div id="toast" class="toast"></div>
+
+  <div class="footer">© <span id="year"></span> Zayka Fast Food</div>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/customer.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: #fff8f0;
+  color: #2b2b2b;
+}
+
+a { color: inherit; }
+
+/* ---------------- Welcome page ---------------- */
+#welcome {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(45deg, orange, red);
+  color: white;
+  padding: 20px;
+}
+#welcome h1 { font-size: 42px; margin-bottom: 10px; }
+#welcome p { font-size: 18px; opacity: 0.95; }
+
+#startBtn {
+  margin-top: 30px;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  color: red;
+  background: white;
+  cursor: pointer;
+  animation: bounce 1s infinite;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* ---------------- Navbar ---------------- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 30px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav .logo { font-weight: bold; font-size: 20px; color: #e25822; }
+nav ul { display: flex; list-style: none; align-items: center; }
+nav ul li { margin: 0 12px; }
+nav a { text-decoration: none; color: #333; font-weight: bold; }
+nav a.active, nav a:hover { color: orange; }
+
+/* ---------------- Hero ---------------- */
+.hero {
+  text-align: center;
+  padding: 90px 20px;
+  background: linear-gradient(orange, tomato);
+  color: white;
+}
+.hero h1 { font-size: 38px; margin-bottom: 10px; }
+
+/* ---------------- Layout helpers ---------------- */
+.container { max-width: 1100px; margin: auto; padding: 30px 20px; }
+.section-title { text-align: center; margin: 30px 0 20px; font-size: 28px; color: #e25822; }
+
+/* ---------------- Cards / menu ---------------- */
+.cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.card {
+  width: 300px;
+  padding: 25px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+.card:hover { transform: translateY(-6px); }
+.card h2 { margin-bottom: 14px; color: #e25822; }
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
+}
+.menu-item:last-child { border-bottom: none; }
+.menu-item .price { color: #2e7d32; font-weight: bold; }
+
+/* ---------------- Buttons ---------------- */
+button, .btn {
+  padding: 12px 24px;
+  background: orange;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+button:hover, .btn:hover { background: #e69500; }
+.btn-sm { padding: 7px 14px; font-size: 13px; }
+.btn-add { background: #2e7d32; }
+.btn-add:hover { background: #256528; }
+.btn-danger { background: #c0392b; }
+.btn-danger:hover { background: #a83224; }
+.btn-grey { background: #888; }
+.btn-grey:hover { background: #6f6f6f; }
+
+/* ---------------- Forms ---------------- */
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+textarea { resize: vertical; min-height: 70px; }
+label { font-weight: bold; font-size: 14px; display: block; margin-top: 8px; }
+
+.form-box {
+  background: white;
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------- Cart ---------------- */
+.cart {
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 30px auto;
+}
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.cart-total { font-size: 20px; font-weight: bold; text-align: right; margin-top: 12px; }
+.empty { text-align: center; color: #999; padding: 20px; }
+
+/* ---------------- Order history records ---------------- */
+.record {
+  background: white;
+  padding: 18px 22px;
+  margin: 15px auto;
+  max-width: 700px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  border-left: 6px solid orange;
+}
+.record h3 { color: #e25822; margin-bottom: 6px; }
+.record .meta { color: #777; font-size: 13px; }
+
+/* ---------------- Tables (admin) ---------------- */
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #f0f0f0; }
+th { background: #fff1e6; color: #e25822; }
+tr:hover td { background: #fffaf4; }
+
+/* ---------------- Admin layout ---------------- */
+.tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0; }
+.tab-btn { background: #fff; color: #555; border: 1px solid #eee; }
+.tab-btn.active { background: orange; color: #fff; }
+.panel { display: none; }
+.panel.active { display: block; }
+.stats { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 10px; }
+.stat {
+  flex: 1; min-width: 160px; background: white; padding: 20px;
+  border-radius: 14px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); text-align: center;
+}
+.stat .num { font-size: 30px; font-weight: bold; color: #e25822; }
+.stat .lbl { color: #777; font-size: 14px; }
+
+.admin-restaurant {
+  background: white; border-radius: 14px; padding: 18px;
+  margin-bottom: 18px; box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+.admin-restaurant h3 { color: #e25822; display: flex; justify-content: space-between; align-items: center; }
+
+.row-inline { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row-inline input { width: auto; flex: 1; min-width: 120px; margin: 4px 0; }
+
+.hint { background: #fff3cd; border: 1px solid #ffe69c; padding: 12px 16px; border-radius: 8px; font-size: 14px; margin: 14px 0; }
+.center { text-align: center; }
+.error { color: #c0392b; font-weight: bold; margin: 8px 0; }
+.footer { text-align: center; padding: 30px; color: #999; font-size: 13px; }
+
+/* =====================================================================
+   PROFILE, LIVE STATUS, TRANSITIONS & RESPONSIVE  (added)
+   ===================================================================== */
+
+/* ---- Page entrance animation ---- */
+.page { animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.fade-up { animation: fadeUp 0.5s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* Stagger the records/cards a little */
+.fade-up:nth-child(2) { animation-delay: 0.05s; }
+.fade-up:nth-child(3) { animation-delay: 0.10s; }
+.fade-up:nth-child(4) { animation-delay: 0.15s; }
+.fade-up:nth-child(5) { animation-delay: 0.20s; }
+
+/* ---- Restaurant-flavoured polish on existing elements ---- */
+.hero h1 { animation: fadeUp 0.6s ease both; }
+.hero p  { animation: fadeUp 0.6s ease 0.1s both; }
+.hero .btn { animation: fadeUp 0.6s ease 0.2s both; }
+.card { animation: fadeUp 0.5s ease both; }
+.card:hover { box-shadow: 0 12px 28px rgba(226, 88, 34, 0.25); }
+button:active, .btn:active { transform: scale(0.96); }
+.btn { transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease; }
+.hero .btn:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.25); transform: translateY(-2px); }
+nav a { transition: color 0.2s ease; position: relative; }
+nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
+  background: orange; transition: width 0.25s ease;
+}
+nav a:hover::after, nav a.active::after { width: 100%; }
+.menu-item { transition: background 0.2s ease; }
+.menu-item:hover { background: #fff7ef; }
+
+/* ---- Hamburger toggle (hidden on desktop) ---- */
+.menu-toggle {
+  display: none; background: transparent; color: #e25822;
+  font-size: 22px; padding: 6px 10px; box-shadow: none;
+}
+
+/* ---- Profile head / avatar ---- */
+.profile-head { display: flex; align-items: center; gap: 16px; }
+.avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(45deg, orange, tomato); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: bold; flex-shrink: 0;
+}
+
+/* ---- Status badges ---- */
+.badge {
+  display: inline-block; padding: 3px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: bold; vertical-align: middle; color: #fff;
+}
+.status-placed            { background: #f39c12; }
+.status-preparing         { background: #2980b9; }
+.status-out-for-delivery  { background: #8e44ad; }
+.status-delivered         { background: #2e7d32; }
+.status-cancelled         { background: #c0392b; }
+
+/* ---- Order status tracker ---- */
+.tracker { display: flex; justify-content: space-between; margin: 16px 0; gap: 6px; }
+.tracker .step { flex: 1; text-align: center; color: #bbb; position: relative; }
+.tracker .step::before {
+  content: ""; position: absolute; top: 14px; left: -50%; width: 100%; height: 3px;
+  background: #eee; z-index: 0;
+}
+.tracker .step:first-child::before { display: none; }
+.tracker .step.done { color: #2e7d32; }
+.tracker .step.done::before { background: #2e7d32; }
+.tracker .dot {
+  position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 50%; background: #eee; color: #888;
+  font-size: 13px; font-weight: bold; margin-bottom: 6px; transition: 0.3s;
+}
+.tracker .step.done .dot { background: #2e7d32; color: #fff; transform: scale(1.05); }
+.tracker small { display: block; font-size: 11px; }
+
+/* ---- Toast popup ---- */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  background: #2b2b2b; color: #fff; padding: 14px 20px; border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3); font-size: 15px;
+  opacity: 0; transform: translateY(20px); pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease; max-width: 320px;
+  border-left: 5px solid orange;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav { flex-wrap: wrap; }
+  nav ul {
+    flex-direction: column; width: 100%; display: none; padding-top: 10px;
+  }
+  nav ul.open { display: flex; }
+  nav ul li { margin: 6px 0; }
+
+  #welcome h1 { font-size: 30px; }
+  .hero { padding: 60px 16px; }
+  .hero h1 { font-size: 28px; }
+  .section-title { font-size: 22px; }
+
+  .cards { gap: 18px; }
+  .card { width: 100%; max-width: 360px; }
+
+  .stats { flex-direction: column; }
+  .container { padding: 20px 14px; }
+
+  /* let wide admin tables scroll instead of breaking layout */
+  .admin-restaurant table, #ordersTable table, #customersTable table { display: block; overflow-x: auto; white-space: nowrap; }
+
+  .row-inline { flex-direction: column; align-items: stretch; }
+  .row-inline input, .row-inline .btn, .row-inline button { width: 100%; }
+
+  .toast { left: 16px; right: 16px; max-width: none; bottom: 16px; }
+  .tracker small { font-size: 10px; }
+}
+
+@media (max-width: 420px) {
+  #welcome h1 { font-size: 24px; }
+  .tracker .dot { width: 26px; height: 26px; }
+}
+
+/* =====================================================================
+   DASHBOARD STATS + ORDER SUCCESS POPUP + CONFETTI  (added)
+   ===================================================================== */
+
+/* Stat cards entrance + hover */
+.stat { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.stat:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(226,88,34,0.18); }
+.hero-stat {
+  background: linear-gradient(135deg, orange, tomato); color: #fff;
+}
+.hero-stat .num { color: #fff; }
+.hero-stat .lbl { color: rgba(255,255,255,0.9); }
+
+.best-seller {
+  background: #fff3cd; border: 1px solid #ffe69c; border-radius: 12px;
+  padding: 12px 18px; margin: 4px 0 18px; font-size: 15px; text-align: center;
+}
+.best-seller:empty { display: none; }
+
+/* ---- Order success modal ---- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+  display: flex; align-items: center; justify-content: center; z-index: 1000;
+  opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 16px;
+}
+.modal-overlay.show { opacity: 1; visibility: visible; }
+.modal-card {
+  background: #fff; border-radius: 22px; padding: 36px 30px; max-width: 420px; width: 100%;
+  text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  transform: scale(0.8) translateY(20px); transition: transform 0.35s cubic-bezier(0.18,0.89,0.32,1.28);
+}
+.modal-overlay.show .modal-card { transform: scale(1) translateY(0); }
+.modal-card h2 { color: #e25822; margin: 16px 0 6px; }
+.modal-card p { color: #666; }
+.modal-order { text-align: left; margin: 18px 0 0; border-top: 1px dashed #eee; padding-top: 12px; }
+
+/* Animated checkmark */
+.checkmark-circle {
+  width: 84px; height: 84px; border-radius: 50%; background: #2e7d32; margin: 0 auto;
+  position: relative; animation: pop 0.4s ease; box-shadow: 0 0 0 0 rgba(46,125,50,0.5);
+}
+.modal-overlay.show .checkmark-circle { animation: pop 0.4s ease, pulse 1.4s ease 0.4s; }
+@keyframes pop { 0% { transform: scale(0); } 70% { transform: scale(1.15); } 100% { transform: scale(1); } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(46,125,50,0.5); } 100% { box-shadow: 0 0 0 22px rgba(46,125,50,0); } }
+.checkmark {
+  width: 22px; height: 44px; border: solid #fff; border-width: 0 6px 6px 0;
+  position: absolute; left: 32px; top: 16px; transform: rotate(45deg) scale(0);
+  transform-origin: center; animation: drawCheck 0.35s ease 0.35s forwards;
+}
+@keyframes drawCheck { to { transform: rotate(45deg) scale(1); } }
+
+/* ---- Confetti ---- */
+.confetti {
+  position: fixed; top: -20px; z-index: 1001; pointer-events: none;
+  animation-name: confettiFall; animation-timing-function: linear; animation-fill-mode: forwards;
+}
+@keyframes confettiFall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg); opacity: 0.9; }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Zayka Fast Food</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🍔 ZAYKA FAST FOOD</div>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="orders.html">Order History</a></li>
+      <li><a href="profile.html" id="navProfile"><i class="fa-solid fa-user"></i> Profile</a></li>
+      <li><a href="login.html"><i class="fa-solid fa-lock"></i> Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-title">Menu</h2>
+    <div class="cards" id="menuCards"></div>
+
+    <h2 class="section-title">Your Cart</h2>
+    <div class="cart">
+      <div id="cartItems"><p class="empty">Your cart is empty. Add some items above 🍕</p></div>
+      <div class="cart-total" id="cartTotal"></div>
+    </div>
+
+    <div class="form-box" id="checkoutBox" style="display:none;">
+      <h2 class="section-title" style="margin-top:0;">Checkout</h2>
+      <form id="orderForm">
+        <label>Name</label>
+        <input type="text" id="custName" placeholder="Your name" required>
+        <label>Phone</label>
+        <input type="tel" id="custPhone" placeholder="10-digit phone" pattern="[0-9]{10}" required>
+        <label>Delivery Address</label>
+        <textarea id="custAddress" placeholder="Where should we deliver?" required></textarea>
+        <label>Payment Method</label>
+        <select id="custPayment">
+          <option value="Cash on Delivery">💵 Cash on Delivery</option>
+        </select>
+        <br><br>
+        <button type="submit">Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order success popup -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-card">
+      <div class="checkmark-circle"><div class="checkmark"></div></div>
+      <h2>Order Placed! 🎉</h2>
+      <p id="successMsg">Thank you! Your delicious food is on its way.</p>
+      <div class="modal-order" id="successDetails"></div>
+      <div class="row-inline" style="justify-content:center;margin-top:18px;">
+        <a href="profile.html" class="btn">Track My Order</a>
+        <button class="btn-grey" onclick="document.getElementById('successModal').classList.remove('show')">Keep Browsing</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">© <span id="year"></span> Zayka Fast Food</div>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/customer.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
